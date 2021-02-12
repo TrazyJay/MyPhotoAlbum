@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace My_Album.Data
+namespace MyPhotoGallery.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

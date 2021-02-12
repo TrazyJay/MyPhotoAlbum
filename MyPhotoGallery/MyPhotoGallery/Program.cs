@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace My_Album
+namespace MyPhotoGallery
 {
     public class Program
     {

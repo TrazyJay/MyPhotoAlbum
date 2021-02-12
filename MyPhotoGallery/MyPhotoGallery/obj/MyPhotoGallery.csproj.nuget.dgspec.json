@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Taiki Mokgatle\\source\\repos\\My Album\\My Album\\MyPhotoGallery.csproj": {}
+    "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\MyPhotoGallery.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Taiki Mokgatle\\source\\repos\\My Album\\My Album\\MyPhotoGallery.csproj": {
+    "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\MyPhotoGallery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taiki Mokgatle\\source\\repos\\My Album\\My Album\\MyPhotoGallery.csproj",
+        "projectUniqueName": "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\MyPhotoGallery.csproj",
         "projectName": "MyPhotoGallery",
-        "projectPath": "C:\\Users\\Taiki Mokgatle\\source\\repos\\My Album\\My Album\\MyPhotoGallery.csproj",
+        "projectPath": "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\MyPhotoGallery.csproj",
         "packagesPath": "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taiki Mokgatle\\source\\repos\\My Album\\My Album\\obj\\",
+        "outputPath": "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Taiki Mokgatle\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,15 +42,15 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -68,7 +68,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

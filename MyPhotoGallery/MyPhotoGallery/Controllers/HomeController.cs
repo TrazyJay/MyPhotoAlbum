@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using My_Album.Models;
+using MyPhotoGallery.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace My_Album.Controllers
+namespace MyPhotoGallery.Controllers
 {
     public class HomeController : Controller
     {

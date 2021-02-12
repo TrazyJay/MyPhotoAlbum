@@ -1,27 +1,38 @@
-﻿@model My_Album.Models.Photo
+﻿@model MyPhotoGallery.Models.Photos
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Edit</h1>
 
-<h4>Photo</h4>
+<h4>Photos</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PhotoId" />
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="PhotoName" class="control-label"></label>
                 <input asp-for="PhotoName" class="form-control" />
                 <span asp-validation-for="PhotoName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Roll" class="control-label"></label>
-                <input asp-for="Roll" class="form-control" />
-                <span asp-validation-for="Roll" class="text-danger"></span>
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

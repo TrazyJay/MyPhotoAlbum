@@ -1,15 +1,28 @@
-﻿@model My_Album.Models.Photo
+﻿@model MyPhotoGallery.Models.Photos
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>Photo</h4>
+    <h4>Photos</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PhotoName)
         </dt>
@@ -17,14 +30,14 @@
             @Html.DisplayFor(model => model.PhotoName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Roll)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Roll)
+            @Html.DisplayFor(model => model.Date)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PhotoId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
