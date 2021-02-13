@@ -14,9 +14,11 @@ namespace MyPhotoGallery.Models
     {
         public int Id { get; set; }
         public string Email { get; set; }
+
+        [DisplayName("Category")]
         public string Title { get; set; }
 
-        [DisplayName("Photo Name")]
+        [DisplayName("Title")]
         public string PhotoName { get; set; }
         public DateTime? Date { get; set; }
 
