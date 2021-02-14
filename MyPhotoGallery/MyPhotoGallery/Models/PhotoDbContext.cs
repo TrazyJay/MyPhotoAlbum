@@ -28,13 +28,7 @@ namespace MyPhotoGallery.Models
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Photos> Photos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-LUF9868S\\SQLEXPRESS;Database=PhotoDb;Integrated Security=True");
-            }
-        }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -138,8 +132,6 @@ namespace MyPhotoGallery.Models
 
             modelBuilder.Entity<Photos>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.Property(e => e.Email)

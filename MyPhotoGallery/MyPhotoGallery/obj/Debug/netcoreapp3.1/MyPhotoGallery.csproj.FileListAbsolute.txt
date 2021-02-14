@@ -188,3 +188,4 @@ C:\Users\Taiki Mokgatle\source\repos\MyPhotoGallery\MyPhotoGallery\obj\Debug\net
 C:\Users\Taiki Mokgatle\source\repos\MyPhotoGallery\MyPhotoGallery\obj\Debug\netcoreapp3.1\Razor\Views\Photos\Details.cshtml.g.cs
 C:\Users\Taiki Mokgatle\source\repos\MyPhotoGallery\MyPhotoGallery\obj\Debug\netcoreapp3.1\Razor\Views\Photos\Edit.cshtml.g.cs
 C:\Users\Taiki Mokgatle\source\repos\MyPhotoGallery\MyPhotoGallery\obj\Debug\netcoreapp3.1\Razor\Views\Photos\Index.cshtml.g.cs
+C:\Users\Taiki Mokgatle\source\repos\MyPhotoGallery\MyPhotoGallery\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll

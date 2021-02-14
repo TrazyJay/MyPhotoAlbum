@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -12,16 +13,16 @@ namespace MyPhotoGallery.Models
 {
     public partial class Photos
     {
+        [Key]
         public int Id { get; set; }
         public string Email { get; set; }
 
         [DisplayName("Category")]
         public string Title { get; set; }
 
-        [DisplayName("Title")]
+        [DisplayName("Image")]
         public string PhotoName { get; set; }
         public DateTime? Date { get; set; }
-
 
         [NotMapped]
         [DisplayName("Upload File")]

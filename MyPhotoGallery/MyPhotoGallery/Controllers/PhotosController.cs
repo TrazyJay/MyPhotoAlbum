@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ICSharpCode.SharpZipLib.Zip;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,15 +13,18 @@ using MyPhotoGallery.Models;
 
 namespace MyPhotoGallery.Controllers
 {
+    [Authorize]
     public class PhotosController : Controller
     {
         private readonly PhotoDbContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
+        private IHostingEnvironment _oIHostingEnvironment;
 
-        public PhotosController(PhotoDbContext context, IWebHostEnvironment hostEnvironment)
+        public PhotosController(PhotoDbContext context, IWebHostEnvironment hostEnvironment, IHostingEnvironment oIHostingEnvironment)
         {
             _context = context;
             this._hostEnvironment = hostEnvironment;
+            _oIHostingEnvironment = oIHostingEnvironment;
         }
 
         // GET: Photos
@@ -66,7 +71,7 @@ namespace MyPhotoGallery.Controllers
                 string fileName = Path.GetFileNameWithoutExtension(photos.PhotoFile.FileName);
                 string extension = Path.GetExtension(photos.PhotoFile.FileName);
                 photos.PhotoName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/pictures/", fileName);
+                string path = Path.Combine(wwwRootPath + "/uploads/", fileName);
 
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
@@ -158,7 +163,7 @@ namespace MyPhotoGallery.Controllers
             var photos = await _context.Photos.FindAsync(id);
 
             //delete image from wwwroot/image
-            var imagePath = Path.Combine(_hostEnvironment.WebRootPath,"pictures",photos.PhotoName);
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath,"uploads",photos.PhotoName);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);
 
@@ -171,6 +176,61 @@ namespace MyPhotoGallery.Controllers
         private bool PhotosExists(int id)
         {
             return _context.Photos.Any(e => e.Id == id);
+        }
+
+        public FileResult GenerateAndDownloadZip()
+        {
+            var webRoot = _oIHostingEnvironment.WebRootPath;
+            var fileName = "MyZip.zip";
+            var tempOutput = webRoot + "/uploads/" + fileName;
+
+            using (ZipOutputStream oZipOutputStream = new ZipOutputStream(System.IO.File.Create(tempOutput)))
+            {
+                oZipOutputStream.SetLevel(9);
+
+                byte[] buffer = new byte[4096];
+
+                var ImageList = new List<string>();
+
+                ImageList.Add(webRoot + "/display/Friends.jpg");
+                ImageList.Add(webRoot + "/display/Lion.jpg");
+                ImageList.Add(webRoot + "/display/Man City.jpg");
+                ImageList.Add(webRoot + "/display/Nature.jpg");
+                ImageList.Add(webRoot + "/display/Nikon.jpg");
+
+                for (int i = 0; i < ImageList.Count; i++)
+                {
+                    ZipEntry entry = new ZipEntry(Path.GetFileName(ImageList[i]));
+                    entry.DateTime = DateTime.Now;
+                    entry.IsUnicodeText = true;
+                    oZipOutputStream.PutNextEntry(entry);
+
+                    using (FileStream oFileStream = System.IO.File.OpenRead(ImageList[i]))
+                    {
+                        int sourceBytes;
+                        do
+                        {
+                            sourceBytes = oFileStream.Read(buffer, 0, buffer.Length);
+                            oZipOutputStream.Write(buffer, 0, sourceBytes);
+                        } while (sourceBytes > 0);
+                    }
+                }
+                oZipOutputStream.Finish();
+                oZipOutputStream.Flush();
+                oZipOutputStream.Close();
+            }
+            byte[] finalResult = System.IO.File.ReadAllBytes(tempOutput);
+            if(System.IO.File.Exists(tempOutput))
+            {
+                System.IO.File.Delete(tempOutput);
+            }
+
+            if (finalResult == null || finalResult.Any())
+            {
+                throw new Exception(String.Format("Nothing Found"));
+            }
+
+            return File(finalResult, "application/zip", fileName);
         }
     }
 }

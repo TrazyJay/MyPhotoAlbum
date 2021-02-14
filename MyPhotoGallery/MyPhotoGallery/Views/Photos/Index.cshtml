@@ -38,7 +38,8 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PhotoName)
+                @*@Html.DisplayFor(modelItem => item.PhotoName)*@
+                <img src="@("~/uploads/" +item.PhotoName)" asp-append-version="true" width="60" height="60" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
@@ -51,4 +52,5 @@
         </tr>
 }
     </tbody>
+    <a href="Photos/GenerateAndDownloadZip" target="_blank" class="btn btn-success">Download Images Zip</a>
 </table>

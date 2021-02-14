@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WOijWFz/KbkNpCgSVzHqcL0hTC7rInOcee9ytNM5eYlEnBAr94lYr0UrjzvlscGR5DsBJ5c78AbRz00iXYH2rA==",
+  "dgSpecHash": "bnb9kLYl797yMZE7f+FKLuWD+ipOMc+qE2i2X5Te9bwMJ4ZizQta8roBuBDCObetWWn8j1qOU9AUN2skomYCUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Taiki Mokgatle\\source\\repos\\MyPhotoGallery\\MyPhotoGallery\\MyPhotoGallery.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,7 @@
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\sharpziplib.netstandard\\1.0.7\\sharpziplib.netstandard.1.0.7.nupkg.sha512",
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\Taiki Mokgatle\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
