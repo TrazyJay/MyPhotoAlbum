@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyPhotoGallery.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyPhotoGallery.Controllers
 {
@@ -181,8 +182,8 @@ namespace MyPhotoGallery.Controllers
         public FileResult GenerateAndDownloadZip()
         {
             var webRoot = _oIHostingEnvironment.WebRootPath;
-            var fileName = "MyZip.zip";
-            var tempOutput = webRoot + "/uploads/" + fileName;
+            var filesName = "My Images.zip";
+            var tempOutput = webRoot + "/display/" + filesName;
 
             using (ZipOutputStream oZipOutputStream = new ZipOutputStream(System.IO.File.Create(tempOutput)))
             {
@@ -192,11 +193,9 @@ namespace MyPhotoGallery.Controllers
 
                 var ImageList = new List<string>();
 
-                ImageList.Add(webRoot + "/display/Friends.jpg");
-                ImageList.Add(webRoot + "/display/Lion.jpg");
-                ImageList.Add(webRoot + "/display/Man City.jpg");
-                ImageList.Add(webRoot + "/display/Nature.jpg");
-                ImageList.Add(webRoot + "/display/Nikon.jpg");
+                ImageList.Add(webRoot + "/display/book.png");
+                ImageList.Add(webRoot + "/display/Chadwick Boseman.jpg");
+                ImageList.Add(webRoot + "/display/Nurses.png");
 
                 for (int i = 0; i < ImageList.Count; i++)
                 {
@@ -220,17 +219,18 @@ namespace MyPhotoGallery.Controllers
                 oZipOutputStream.Close();
             }
             byte[] finalResult = System.IO.File.ReadAllBytes(tempOutput);
-            if(System.IO.File.Exists(tempOutput))
+            if (System.IO.File.Exists(tempOutput))
             {
                 System.IO.File.Delete(tempOutput);
             }
 
-            if (finalResult == null || finalResult.Any())
+            if (finalResult == null)
             {
                 throw new Exception(String.Format("Nothing Found"));
             }
 
-            return File(finalResult, "application/zip", fileName);
+            return File(finalResult, "application/zip", filesName);
         }
     }
 }
+
